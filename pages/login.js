@@ -1,6 +1,7 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, provider } from "../firebase/firebase";
 import ls from "local-storage";
+import { getUserByEmail, createUser } from "../services";
 
 const googleLogIn = async () => {
   const { user: gUser } = await signInWithPopup(auth, provider);
@@ -19,13 +20,13 @@ const googleLogIn = async () => {
   }
   ls("self", loggedInUser.user);
 
-  window.location.href = "/chatrooms";
+  window.location.href = "/profile";
 };
 
 function LogIn() {
   return (
     <div>
-      <h1>Welcome to Bug Tracker!</h1>
+      <h1>Welcome to the Bug Tracker!</h1>
       <div>
         <h2>Sign-In With Google</h2>
         <button onClick={() => googleLogIn()}>Google Login</button>
