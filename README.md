@@ -13,4 +13,8 @@ Bug Tracker App - Have a project with a lot of nasty bugs? Use this bug tracker 
 * Sequelize
 
 
+## MVP
+* User can sign in into their own profile
+* User can add new projects to profile screen
+* User can click on projects and add issues
 
