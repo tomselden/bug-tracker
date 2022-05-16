@@ -1,7 +1,8 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, provider } from "../firebase/firebase";
 import ls from "local-storage";
-import { getUserByEmail, createUser } from "../services";
+import { getUserByEmail, createUser } from "../services/index";
+import profile from "./profile";
 
 const googleLogIn = async () => {
   const { user: gUser } = await signInWithPopup(auth, provider);
@@ -20,7 +21,7 @@ const googleLogIn = async () => {
   }
   ls("self", loggedInUser.user);
 
-  window.location.href = "/profile";
+  return <profile />;
 };
 
 function LogIn() {
