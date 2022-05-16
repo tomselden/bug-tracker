@@ -21,7 +21,7 @@ const googleLogIn = async () => {
   }
   ls("self", loggedInUser.user);
 
-  return <profile />;
+  
 };
 
 function LogIn() {
