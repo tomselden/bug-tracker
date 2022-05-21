@@ -1,9 +1,8 @@
-function profile() {
+export default function Profile() {
+  const [loggedInUser, setLoggedInUser] = useState(null);
   return (
     <div>
-      <h1>Welcome to profile !</h1>
+      <h1>profile page!</h1>
     </div>
   );
 }
-
-export default profile;

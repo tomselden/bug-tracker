@@ -2,10 +2,11 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, provider } from "../firebase/firebase";
 import ls from "local-storage";
 import { getUserByEmail, createUser } from "../services/index";
-import profile from "./profile";
+import Profile from "./profile";
 
 const googleLogIn = async () => {
   const { user: gUser } = await signInWithPopup(auth, provider);
+  console.log(gUser.email)
   const existingUser = await getUserByEmail(gUser.email).then((response) =>
     response.json()
   );
@@ -20,7 +21,7 @@ const googleLogIn = async () => {
     }).then((response) => response.json());
   }
   ls("self", loggedInUser.user);
-
+  return <Profile />
   
 };
 
