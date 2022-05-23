@@ -11,6 +11,7 @@ Bug Tracker App - Have a project with a lot of nasty bugs? Use this bug tracker 
 
 **Back End**
 * Sequelize
+* PostgreSQL
 
 
 ## MVP
