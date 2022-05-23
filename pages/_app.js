@@ -10,15 +10,15 @@ import Profile from "./profile";
 function MyApp() {
   // useAuthState returns array of 3, first is user, second is loading, third is error
 
-  const user = useAuthState(auth);
-  const router = useRouter();
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  // const user = useAuthState(auth);
+  // const router = useRouter();
+  // const [loggedInUser, setLoggedInUser] = useState(null);
 
-  useState(() => {
-    setLoggedInUser(ls("self"));
-  }, []);
+  // useState(() => {
+  //   setLoggedInUser(ls("self"));
+  // }, []);
 
-  if (!loggedInUser) return <LogIn />;
+  // if (!loggedInUser) return <LogIn />;
 
   return <Profile />;
 }

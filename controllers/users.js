@@ -1,7 +1,7 @@
-const modelUsers = require("../models/users");
+const models = require("../models");
 
 
-export const getOneUserBy = (query) => modelUsers.findOne(query)
+export const getOneUserBy = (query) => models.users.findOne(query)
 
 
 
@@ -30,7 +30,7 @@ export const getUserBy = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    const newUser = await modelUsers.create(req.body);
+    const newUser = await models.users.create(req.body);
     res.json({ user: newUser.toJSON() });
   } catch (error) {
     console.log({ error });

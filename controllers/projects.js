@@ -1,4 +1,4 @@
-import res from "express/lib/response";
+
 
 const models = require("../models/users");
 

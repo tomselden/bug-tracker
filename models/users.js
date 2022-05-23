@@ -32,5 +32,29 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "users",
     }
   );
+  projects.init(
+    {
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      userID: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      avatar: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: "users",
+    }
+  );
   return users;
 };
