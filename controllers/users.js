@@ -1,9 +1,7 @@
-const models = require("../models");
+const {models} = require("../models")
 
-
-export const getOneUserBy = (query) => models.users.findOne(query)
-
-
+debugger;
+export const getOneUserBy = (query) => models.Users.findOne(query);
 
 export const getUsersByEmail = (email) =>
   getOneUserBy({
@@ -30,7 +28,7 @@ export const getUserBy = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    const newUser = await models.users.create(req.body);
+    const newUser = await models.Users.create(req.body);
     res.json({ user: newUser.toJSON() });
   } catch (error) {
     console.log({ error });

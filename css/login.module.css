@@ -1,3 +1,32 @@
-.loginContainer {
-    align-items: center;
+.main {
+  color: #ffffffff;
+  background-color: #111111ff;
+  height: 90%;
+  width: 95%;
+  position: relative;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.background {
+  background-color: #333333ff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.button {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  line-height: 5;
+
 }

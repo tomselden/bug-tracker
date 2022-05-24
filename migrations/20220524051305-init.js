@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("users", {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,7 +11,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
-      userName: {
+      username: {
         type: Sequelize.STRING,
       },
       avatar: {
@@ -27,32 +27,57 @@ module.exports = {
       },
     });
 
-    await queryInterface.createTable("projects", {
+    await queryInterface.createTable("Projects", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      project: {
-        type: Sequelize.STRING,
-      },
-      userID: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "users",
+          model: "Users",
           key: "id",
         },
+      },
+      project: {
+        type: Sequelize.STRING,
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+    });
+
+    await queryInterface.createTable("Issues", {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
       },
       issue: {
         type: Sequelize.STRING,
       },
-      issueStatus: {
-        type: Sequelize.STRING,
+      projectId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Projects",
+          key: "id",
+        },
       },
-      comment: {
-        type: Sequelize.STRING,
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
@@ -65,6 +90,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("users");
+    await queryInterface.dropAllTables();
   },
 };

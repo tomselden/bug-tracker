@@ -42,14 +42,15 @@
   border-radius: 25px;
   align-items: center;
   overflow: auto;
+  
 }
 
 .avatar {
   position: absolute;
-  left: 95%;
+  left: 96%;
   top: -0.000000001vh;
-  width: 5%;
-  height: 10%;
+  width: 4%;
+  height: 7%;
 }
 
 .blurb {
@@ -57,18 +58,27 @@
 }
 
 .projectContainer {
-  height: 200px;
+  height: 90%;
   position: relative;
   border: 3px solid #ea558dff;
   border-radius: 25px;
+  border-width: thick;
 }
 
 .button {
   margin: 0;
   background-color: #ea558dff;
   position: absolute;
-  top: 50%;
+  top: 4%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.formWrapper {
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
 }

@@ -3,6 +3,10 @@ import { auth, provider } from "../firebase/firebase";
 import ls from "local-storage";
 import { getUserByEmail, createUser } from "../services/index";
 import Profile from "./profile";
+import { Button } from "react-bootstrap";
+import styles from "../css/login.module.css"
+import { style } from "@mui/system";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const googleLogIn = async () => {
   const { user: gUser } = await signInWithPopup(auth, provider);
@@ -27,11 +31,12 @@ const googleLogIn = async () => {
 
 function LogIn() {
   return (
-    <div>
-      <h1>Welcome to the Bug Tracker!</h1>
-      <div>
-        <h2>Sign-In With Google</h2>
-        <button onClick={() => googleLogIn()}>Google Login</button>
+    <div className={styles.background}>
+      <div className={styles.main}>
+        <h1 className={styles.header}>BUG TRACKER</h1>
+        <div className={styles.button}>
+        <Button variant="primary" onClick={() => googleLogIn()}>Google Login</Button>
+        </div>
       </div>
     </div>
   );

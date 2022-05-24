@@ -58,12 +58,15 @@ export const getUserByEmail = (email) =>
     },
   });
 
-export const getProjectsById = ({ project }) =>
-  fetch(`api/projects?userID=${id}`, {
+export const getProjectsById = ({ userID }) =>
+  fetch(`api/projects?userID=${userID}`, {
     method: "GET",
     mode: "cors",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      project
+    }),
   });

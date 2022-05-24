@@ -6,10 +6,35 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Modal from "../components/Modal";
 import { Form } from "react-bootstrap";
+import { createProject, getProjectsById } from "../services";
+import AddNewProjects from "../components/addNewProjects";
+import ls from "local-storage";
 
 export default function Profile() {
-  // const [loggedInUser, setLoggedInUser] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  useEffect(() => {
+    const user = ls("self");
+    setLoggedInUser(user);
+  }, []);
+  // const [ projectList, setProjectList ] = useState()
   const [showModal, setShowModal] = useState(false);
+  const getProjectName = (event) => {
+    const project = event.target.value;
+    console.log(project);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    createProject({ project }).then(onsubmit);
+  };
+
+  const getUsersProjects = (userID) => {
+    fetch(`api/projects?userID${userID}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProjectList(data.project);
+      })
+      .catch(console.error);
+  };
 
   return (
     <div className={styles.background}>
@@ -24,16 +49,13 @@ export default function Profile() {
               Add New Project
             </Button>
             <Modal onClose={() => setShowModal(false)} show={showModal}>
-              <div>
-                <Form>
-                  <Form.Label>Project Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Project"
-                  ></Form.Control>
-                  <Button type="submit">Add Project</Button>
-                </Form>
-              </div>
+              <AddNewProjects
+                userID={loggedInUser?.id}
+                onSubmit={() => {
+                  setShowModal(false);
+                  getUsersProjects(userID);
+                }}
+              />
             </Modal>
           </div>
         </div>
@@ -41,3 +63,5 @@ export default function Profile() {
     </div>
   );
 }
+
+
