@@ -31,3 +31,17 @@ localhost:3000
 * User can add new projects to profile screen
 * User can click on projects and add issues
 
+## Changelog
+
+* Initial commit from Create Next App
+* added LoginPage skeleton and created a next.js app
+* added readme
+* Update README.md
+* added services.js and more dependencies
+* fixed some bugs
+* added part of sql database structure and added config.js file
+* added _app logic and setting up database structure
+* Update README.md
+* adding controller and model directory and placeholder files
+* added database structure, models, and migrations
+* added modal and styling for profile.js and modal.js
