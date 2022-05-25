@@ -18,15 +18,12 @@ Bug Tracker App - Have a project with a lot of nasty bugs? Use this bug tracker 
 cd bug-tracker
 npm i
 npm run dev
-
 ```
 
 **Hosted At**
 
 ```
-
 localhost:3000
-
 ```
 
 ## MVP
